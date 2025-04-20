@@ -1,9 +1,10 @@
 class HomeController < ApplicationController
     def index
-        @title = 'デイトラ'
+    # デフォルトで何も書かなければ views/home/index.html.erbを表示する
+    @title = 'デイトラ'
     end
 
     def about
-        @subtitle = '最高'
+    @about = 'aboutページに飛んだよ'
     end
 end

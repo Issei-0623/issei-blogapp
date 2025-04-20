@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
-  # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
-  allow_browser versions: :modern
-end
+    # ActionController::Baseに色々なメソッドが用意されており、自由に使える
+    # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
+    allow_browser versions: :modern
+end  
