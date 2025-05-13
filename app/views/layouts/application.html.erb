@@ -25,6 +25,7 @@
     <%#= stylesheet_link_tag :tabs, "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%#= stylesheet_link_tag :_variables, "data-turbo-track": "reload" %>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" crossorigin="anonymous">
   </head>
 
 
@@ -39,7 +40,13 @@
         </div>
       </div>
     </header>
-
+    <% if flash.present? %>
+      <div class="flash">
+        <% flash.each do |key, value| %>
+          <div class="<%= key %>"><%= value %></div>
+        <% end %>
+      </div>
+    <% end %>
   <%# yieldでindex.erbやabout.erbを埋め込む %>
     <%= yield %>
   </body>
