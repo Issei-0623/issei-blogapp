@@ -437,10 +437,7 @@ DEPENDENCIES
   capybara
   cssbundling-rails
   debug
-<<<<<<< HEAD
   devise
-=======
->>>>>>> origin/main
   erb2haml
   faker
   haml-rails
