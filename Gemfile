@@ -8,10 +8,10 @@ gem 'cssbundling-rails'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 8.0.1'
+gem 'pg', '>=0.18', '<2.0'
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem 'propshaft', '~> 1.0'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '>= 2.1'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '>= 5.0'
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
@@ -23,12 +23,13 @@ gem 'stimulus-rails'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
 
-gem 'annotate'
+# gem 'annotate', '~> 3.2', require: false
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'devise'
 gem 'faker'
 gem 'hamlit'
+gem 'aws-sdk-s3', require: false
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
@@ -58,6 +59,7 @@ group :development, :test do
   gem 'debug', platforms: %i[ mri windows ], require: 'debug/prelude'
   gem 'pry'
   gem 'rubocop-rails'
+  gem 'dotenv-rails'
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem 'brakeman', require: false
