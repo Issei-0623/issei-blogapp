@@ -24,8 +24,11 @@
   },
   "homepage": "https://github.com/Issei-0623/issei-blogapp#readme",
   "dependencies": {
+    "@rails/actiontext": "^8.1.200",
+    "@rails/webpacker": "^5.4.4",
     "postcss": "^8.5.3",
-    "sass": "^1.87.0"
+    "sass": "^1.87.0",
+    "trix": "^2.1.16"
   },
   "devDependencies": {
     "tailwindcss": "^4.1.4"
