@@ -24,6 +24,7 @@ gem 'stimulus-rails'
 gem 'jbuilder'
 
 # gem 'annotate', '~> 3.2', require: false
+gem 'active_decorator'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'devise'
