@@ -26,6 +26,7 @@
   "dependencies": {
     "@rails/actiontext": "^8.1.200",
     "@rails/webpacker": "^5.4.4",
+    "jquery": "^4.0.0",
     "postcss": "^8.5.3",
     "sass": "^1.87.0",
     "trix": "^2.1.16"
