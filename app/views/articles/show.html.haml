@@ -26,11 +26,9 @@
 
 .article
   %h2 コメント一覧
-  - @comments.each do |comment|
-    .article_comment
-      %p= comment.content
+  .comments-container
 
 .container
-  = link_to new_article_comment_path(@article) do
-    .btn-secondary
-      コメントを追加
+  .comment-form-container
+  = link_to "#", class: "btn-secondary", id: "comment-toggle" do
+    コメントを追加
