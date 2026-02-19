@@ -3,7 +3,10 @@
     - @comment.errors.full_messages.each do |message|
       %li= message
 
-  = form_with(model: @comment, url: article_comments_path(@comment.article), local: true) do |f|
+  = form_with(model: @comment,
+            url: article_comments_path(@comment.article),
+            id: "comment-form",
+            data: { turbo: false }) do |f|
     %div
       = f.label :content, '内容'
     %div

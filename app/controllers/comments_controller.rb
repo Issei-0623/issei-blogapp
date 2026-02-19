@@ -1,4 +1,10 @@
 class CommentsController < ApplicationController
+    def index
+      article = Article.find(params[:article_id])
+      comments = article.comments
+      render json: comments
+    end
+
     def new
       article = Article.find(params[:article_id])
       @comment = article.comments.build
@@ -7,13 +13,14 @@ class CommentsController < ApplicationController
     def create
       article = Article.find(params[:article_id])
       @comment = article.comments.build(comment_params)
+
       if @comment.save
-        redirect_to article_path(article), notice: 'コメントを追加'
+        render json: @comment
       else
-        flash.now[:error] = '更新できませんでした'
-        render :new
+        render json: { error: '保存失敗' }, status: :unprocessable_entity
       end
     end
+
   
     private
     def comment_params
