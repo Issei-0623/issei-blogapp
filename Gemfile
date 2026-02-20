@@ -32,6 +32,8 @@ gem 'faker'
 gem 'hamlit'
 gem 'aws-sdk-s3', require: false
 gem 'active_model_serializers'
+gem 'letter_opener'
+gem 'letter_opener_web', '~> 3.0'
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
