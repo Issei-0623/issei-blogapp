@@ -1,2 +1,6 @@
 web: env RUBY_DEBUG_OPEN=true bin/rails server
 css: yarn build:css --watch
+
+worker: bundle exec sidekiq -C config/sidekiq.yml
+redis: bundle exec redis-server /usr/local/etc/redis.conf
+webpacker: ./bin/webpack-dev-server
