@@ -20,7 +20,7 @@ document.addEventListener("turbo:load", async () => {
 
   // コメント一覧取得
   const loadComments = async () => {
-    const response = await fetch(`/articles/${articleId}/comments`)
+    const response = await fetch(`/api/articles/${articleId}/comments`)
     const comments = await response.json()
 
     commentsContainer.innerHTML = ""
@@ -52,7 +52,7 @@ document.addEventListener("turbo:load", async () => {
 
             const formData = new FormData(form)
 
-            const response = await fetch(form.action, {
+            const response = await fetch(`/api/articles/${articleId}/comments`, {
               method: "POST",
               headers: { "X-CSRF-Token": csrfToken },
               body: formData
@@ -77,7 +77,7 @@ document.addEventListener("turbo:load", async () => {
   const active = document.querySelector(".active-heart")
   const inactive = document.querySelector(".inactive-heart")
 
-  const res = await fetch(`/articles/${articleId}/like`)
+  const res = await fetch(`/api/articles/${articleId}/like`)
   const data = await res.json()
 
   if (data.hasLiked) {
@@ -89,7 +89,7 @@ document.addEventListener("turbo:load", async () => {
   }
 
   inactive.addEventListener("click", async () => {
-    const r = await fetch(`/articles/${articleId}/like`, {
+    const r = await fetch(`/api/articles/${articleId}/like`, {
       method: "POST",
       headers: { "X-CSRF-Token": csrfToken }
     })
@@ -100,7 +100,7 @@ document.addEventListener("turbo:load", async () => {
   })
 
   active.addEventListener("click", async () => {
-    const r = await fetch(`/articles/${articleId}/like`, {
+    const r = await fetch(`/api/articles/${articleId}/like`, {
       method: "DELETE",
       headers: { "X-CSRF-Token": csrfToken }
     })
