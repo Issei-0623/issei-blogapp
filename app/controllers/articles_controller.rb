@@ -14,9 +14,6 @@ class ArticlesController < ApplicationController
         @article = current_user.articles.build
     end
 
-    def like
-    end
-
     def create
         @article = current_user.articles.build(article_params)
         if @article.save
