@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root to: 'articles#index'
 
   resources :articles do
-    resources :comments, only: [:new]
+    resources :comments, only: [:new, :create]
   end
 
   resources :accounts, only: [:show] do
