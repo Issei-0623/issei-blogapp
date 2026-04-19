@@ -1,6 +1,6 @@
+@import 'variables';
 @import 'header';
 @import 'tabs';
-@import 'variables';
 @import 'card';
 @import 'article';
 @import 'buttons';
@@ -10,7 +10,6 @@
 @import 'profile';
 @import 'actiontext';
 @import 'footer';
-
 
 html {
   word-spacing: 1px;
@@ -30,33 +29,51 @@ html {
 }
 
 body {
-  height: 100%;
-  background-color: $base-bg-color;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #e9e5ef;
   font-size: 1em;
   color: $text-base-color;
 }
 
 a {
-    text-decoration: none;
-    color: $text-base-color;
+  text-decoration: none;
+  color: $text-base-color;
+}
+
+.app-frame {
+  position: relative;
+  max-width: 375px;
+  width: 100%;
+  margin: 24px auto;
+  min-height: calc(100vh - 48px);
+  background: white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.main-container {
+  width: 100%;
+  padding-bottom: 88px;
 }
 
 .container {
-  padding: 16px 16px;
+  padding: 16px;
   width: 100%;
 }
 
 .float_btn {
   position: fixed;
-  bottom: 16px;
-  right: 16px;
+  bottom: 24px;
+  right: max(16px, calc((100vw - 375px) / 2 + 16px));
   width: 64px;
   height: 64px;
-  border-radius: 100%;
+  border-radius: 50%;
   text-align: center;
   background-color: $primary-color;
   color: white;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  z-index: 20;
 
   i {
     margin-top: 22px;
@@ -65,4 +82,17 @@ a {
 
 .hidden {
   display: none;
+}
+
+@media screen and (max-width: 375px) {
+  .app-frame {
+    margin: 0 auto;
+    min-height: 100vh;
+    box-shadow: none;
+  }
+
+  .float_btn {
+    right: 16px;
+    bottom: 16px;
+  }
 }

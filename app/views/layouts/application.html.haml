@@ -12,31 +12,35 @@
     %link{href: "/icon.png", rel: "icon", type: "image/png"}/
     %link{href: "/icon.svg", rel: "icon", type: "image/svg+xml"}/
     %link{href: "/icon.png", rel: "apple-touch-icon"}/
-    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     %link{crossorigin: "anonymous", href: "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel: "stylesheet"}/
     = javascript_importmap_tags
   %body
-    %header.header
-      .header_logos
-        - if !current_page?(root_path)
-          = link_to :back do
-            = image_tag 'back.svg', class: 'header_back'
-        %p.header_pageTitle 
-          = link_to 'BlogApp', root_path
-      - if user_signed_in?
-        .dropdown
-          = image_tag current_user.avatar_image, class: 'header_avatar dropbtn'
-          .dropdown-content
-            = link_to 'プロフィール', profile_path
-            = link_to 'お気に入り', favorites_path
-            = link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }
+    .app-frame
+      %header.header
+        .header_logos
+          - if !current_page?(root_path)
+            = link_to :back do
+              = image_tag 'back.svg', class: 'header_back'
+          %p.header_pageTitle
+            = link_to 'BlogApp', root_path
 
-      - else
-        = link_to 'ログイン', new_user_session_path, class: 'header_loginBtn'
-    - if flash.present?
-      .flash
-        - flash.each do |key, value|
-          %div{:class => key}= value
-    = yield
-    = render 'layouts/footer'
+        - if user_signed_in?
+          .dropdown
+            = image_tag current_user.avatar_image, class: 'header_avatar dropbtn'
+            .dropdown-content
+              = link_to 'プロフィール', profile_path
+              = link_to 'お気に入り', favorites_path
+              = link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }
+        - else
+          = link_to 'ログイン', new_user_session_path, class: 'header_loginBtn'
+
+      - if flash.present?
+        .flash
+          - flash.each do |key, value|
+            %div{ class: key }= value
+
+      .main-container
+        = yield
+
+      = render 'layouts/footer'
